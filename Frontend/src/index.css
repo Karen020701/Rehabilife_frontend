@@ -1,0 +1,32 @@
+/* index.css - Estilos globales */
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #0077b6, #20c6e8); /* Gradiente azul salud */
+  background-attachment: fixed; /* Fondo fijo */
+  background-size: cover; /* Ajustar el tamaño del fondo */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  overflow-y: auto; /* Habilitar desplazamiento vertical si hay muchos elementos */
+}
+
+a {
+  text-decoration: none;
+  color: #0077b6; /* Azul profesional */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
