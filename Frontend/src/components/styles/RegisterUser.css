@@ -1,5 +1,5 @@
 .register-container {
-  background: #ffffff; /* Fondo blanco para contraste */
+  background: #ffffff;
   padding: 20px 30px;
   border-radius: 20px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -10,7 +10,7 @@
 
 .register-container h2 {
   margin-bottom: 10px;
-  color: #0077b6; /* Azul destacado */
+  color: #0077b6; 
 }
 
 .register-container form {
@@ -37,7 +37,7 @@
 }
 
 .register-container input:focus {
-  border-color: #00b4d8; /* Resaltar campo activo */
+  border-color: #00b4d8; 
   outline: none;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .register-container button:hover {
-  background: #005f99; /* Azul más oscuro al pasar el mouse */
+  background: #005f99; 
 }
 
 .register-container p {
