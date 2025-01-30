@@ -12,15 +12,17 @@ const Navigation = () => {
       <Link to="/payments">
             <button>Payments</button>
       </Link>
+      <Link to="/products">
+            <button>View Products</button>
+      </Link>
 
       {role === 'admin' && (
         <>
           
           <Link to="/admin">
-            <button>admin</button>
+            <button>Add Product</button>
           </Link>
           
-
         </>
       )}
     </div>
