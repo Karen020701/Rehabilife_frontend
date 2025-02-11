@@ -6,6 +6,7 @@ const config = {
   BASE_URL_PRODUCT_DELETE: 'http://localhost:3009/deleteProduct',
   BASE_URL_PRODUCT_UPDATE: 'http://localhost:3007/api/products',
   BASE_URL_PRODUCT: 'http://localhost:3008/api/products',
+  BASE_URL_LOCATIONS: 'http://localhost:3010/api/locations'
   
 };
 
