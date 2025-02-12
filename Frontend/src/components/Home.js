@@ -19,8 +19,8 @@ const Navigation = () => {
       {role === 'admin' && (
         <>
           
-          <Link to="/admin">
-            <button>Add Product</button>
+          <Link to="/add-product">
+            <button>Add Poduct</button>
           </Link>
           
         </>

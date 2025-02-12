@@ -1,0 +1,75 @@
+.add-product-container {
+    background: #ffffff;
+    padding: 15px 35px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: auto; 
+  }
+  
+  .add-product-container h2 {
+    margin-bottom: 10px;
+    color: #0077b6;
+  }
+  
+  .add-product-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .add-product-container label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    align-self: flex-start;
+  }
+  
+  .add-product-container input {
+    width: calc(100% - 1px);
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .add-product-container input:focus {
+    border-color: #00b4d8; /* Resaltar campo activo */
+    outline: none;
+  }
+  
+  .add-product-container .button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .add-product-container button {
+    width: 48%; /* Botones ajustados al 50% */
+    padding: 10px;
+    border: none;
+    background: #41c00b;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .add-product-container button:hover {
+    background: #005f99; /* Azul más oscuro */
+  }
+  
+  .add-product-container .cancel-button {
+    background: #ff5959; /* Rojo para cancelar */
+  }
+  
+  .add-product-container .cancel-button:hover {
+    background: #d90429; /* Rojo más oscuro */
+  }
+  

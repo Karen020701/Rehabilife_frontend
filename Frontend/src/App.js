@@ -8,6 +8,7 @@ import RegisterUser from './components/registerUser';
 import OffersList from './components/offer-list';
 import PaymentsList from './components/payment'; 
 import Locations from './components/Locations';
+import AddProduct from './components/products-add';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
@@ -31,7 +32,8 @@ const App = () => {
           <Route path="/register" element={< RegisterUser ></RegisterUser> } />
           <Route path="/offers" element={<PrivateRoute><OffersList /></PrivateRoute>} />
           <Route path="/payments" element={<PrivateRoute><PaymentsList /></PrivateRoute>} />
-          <Route path="/locations" element={<PrivateRoute><LocationsList /></PrivateRoute>} /> 
+          <Route path="/add-product" element={<PrivateRoute><AddProduct /></PrivateRoute>} />
+          <Route path="/locations" element={<PrivateRoute><Locations /></PrivateRoute>} /> 
 
         </Routes>
       </div>
