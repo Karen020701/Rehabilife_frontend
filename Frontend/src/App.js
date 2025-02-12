@@ -15,6 +15,7 @@ import CategoryList from './components/category-list';
 import SchedulesList from './components/schedules-list';
 import DevelopersList from "./components/developers-list";
 import SuggestionBox from "./components/suggestion-box";
+import InventoriesList from './components/InventoriesList';
 
 
 const App = () => {
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/schedules" element={<SchedulesList />} />
           <Route path="/developers" element={<DevelopersList />} />
           <Route path="/suggestion" element={<SuggestionBox />} />
+          <Route path="/inventories" element={<InventoriesList />} />
 
 
 
