@@ -22,7 +22,9 @@ const Navigation = () => {
           <Link to="/add-product">
             <button>Add Poduct</button>
           </Link>
-          
+          <Link to="/users">
+            <button>Manage Users</button>
+          </Link>
         </>
       )}
     </div>

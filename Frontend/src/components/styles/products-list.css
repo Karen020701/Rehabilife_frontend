@@ -1,0 +1,284 @@
+.products-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    overflow: visible; 
+  }
+  
+  .products-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    
+  }
+  
+  .product-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .product-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .product-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .product-card strong {
+    color: #111;
+  }
+  
+  .product-card button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    color: white;
+  }
+  
+  .product-card button.edit {
+    background-color: #28a745;
+  }
+  
+  .product-card button.edit:hover {
+    background-color: #218838;
+  }
+  
+  .product-card button.delete {
+    background-color: #dc3545;
+  }
+  
+  .product-card button.delete:hover {
+    background-color: #c82333;
+  }
+  
+  .home-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .home-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  
+
+  .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-align: center;
+    color: #333;
+  }
+  
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+
+  .modal-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s;
+  }
+  
+  .modal-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .modal-save-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .modal-save-button:hover {
+    background-color: #218838;
+  }
+  
+  .modal-cancel-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .modal-cancel-button:hover {
+    background-color: #5a6268;
+  }
+  
+
+  .custom-modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  
+ 
+  .form-group {
+    margin-bottom: flex;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px; 
+  }
+  
+  .modal-input {
+    
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%; 
+    box-sizing: border-box; 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s;
+  }
+  
+  .modal-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 1px;
+  }
+  
+  .modal-save-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .modal-save-button:hover {
+    background-color: #218838;
+  }
+  
+  .modal-delete-button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .modal-delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  .modal-cancel-button {
+    padding: 10px 20px;
+    background-color: #aba6a6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .modal-cancel-button:hover {
+    background-color: #6a6061;
+  }
