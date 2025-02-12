@@ -13,6 +13,7 @@ import UserList from "./components/user-list";
 import ProductsList from './components/product-list';
 import CategoryList from './components/category-list';
 import SchedulesList from './components/schedules-list';
+import DevelopersList from "./components/developers-list";
 
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/products" element={<PrivateRoute><ProductsList /></PrivateRoute>} />
           <Route path="/categories" element={<PrivateRoute requiredRole="admin"><CategoryList /></PrivateRoute>} />
           <Route path="/schedules" element={<SchedulesList />} />
+          <Route path="/developers" element={<DevelopersList />} />
 
 
 
