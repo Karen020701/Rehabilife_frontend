@@ -13,20 +13,20 @@ const Navigation = () => {
             <button>Payments</button>
       </Link>
       <Link to="/products">
-            <button>View Products</button>
+            <button>Products</button>
       </Link>
 
       {role === 'admin' && (
         <>
           
           <Link to="/add-product">
-            <button>Add Poduct</button>
+            <button>Product</button>
           </Link>
           <Link to="/users">
-            <button>Manage Users</button>
+            <button>Users</button>
           </Link>
           <Link to="/categories">
-            <button>Manage Categories</button>
+            <button>Categories</button>
           </Link>
           <Link to="/schedules">
             <button>Schedules</button>
