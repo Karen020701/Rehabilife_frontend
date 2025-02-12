@@ -12,6 +12,7 @@ import AddProduct from './components/products-add';
 import UserList from "./components/user-list";
 import ProductsList from './components/product-list';
 import CategoryList from './components/category-list';
+import SchedulesList from './components/schedules-list';
 
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/users" element={<PrivateRoute requiredRole="admin"><UserList /></PrivateRoute>} />
           <Route path="/products" element={<PrivateRoute><ProductsList /></PrivateRoute>} />
           <Route path="/categories" element={<PrivateRoute requiredRole="admin"><CategoryList /></PrivateRoute>} />
+          <Route path="/schedules" element={<SchedulesList />} />
 
 
 

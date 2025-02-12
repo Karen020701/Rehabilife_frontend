@@ -28,6 +28,9 @@ const Navigation = () => {
           <Link to="/categories">
             <button>Manage Categories</button>
           </Link>
+          <Link to="/schedules">
+            <button>Schedules</button>
+          </Link>
         </>
       )}
     </div>
