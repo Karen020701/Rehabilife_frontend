@@ -40,6 +40,9 @@ const Navigation = () => {
           <Link to="/suggestion">
             <button>Suggestion</button>
           </Link>
+          <Link to="/inventories">
+            <button>Inventories</button>
+          </Link>
         </>
       )}
     </div>

@@ -19,6 +19,8 @@ const config = {
   BASE_URL_DEVELOPERS: "https://postgresql-karenchicaiza.alwaysdata.net/apiDevelopers.php",
   BASE_URL_SUGGESTIONS: "http://localhost:3022/api/suggestions",
   MQTT_TOPIC: "suggestions",
+  BASE_URL_INVENTORIES: 'http://localhost:5003/graphql'
+
 };
 
 
