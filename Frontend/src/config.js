@@ -16,8 +16,9 @@ const config = {
   BASE_URL_CATEGORY_CREATE: "http://localhost:4001/api/categories",
   BASE_URL_SCHEDULES: "http://localhost:3016/graphql",
   BASE_URL_LOCATIONS: "https://postgresql-karenchicaiza.alwaysdata.net/apiLocations.php",
-  BASE_URL_DEVELOPERS: "https://postgresql-karenchicaiza.alwaysdata.net/apiDevelopers.php"
-  
+  BASE_URL_DEVELOPERS: "https://postgresql-karenchicaiza.alwaysdata.net/apiDevelopers.php",
+  BASE_URL_SUGGESTIONS: "http://localhost:3022/api/suggestions",
+  MQTT_TOPIC: "suggestions",
 };
 
 
