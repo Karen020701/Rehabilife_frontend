@@ -111,35 +111,37 @@ const CategoryList = () => {
     <div className="category-list-container">
       <h2>Categories List</h2>
       <button className="new-category-button" onClick={handleCreateClick}>
-        + Add Category
+        + New
       </button>
-      <table className="category-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {categories.map((category) => (
-            <tr key={category.id}>
-              <td>{category.id}</td>
-              <td>{category.name}</td>
-              <td>{category.description}</td>
-              <td>
-                <button className="edit-button" onClick={() => handleEditClick(category)}>
-                  ✏️ Edit
-                </button>
-                <button className="delete-button" onClick={() => handleDeleteClick(category)}>
-                  🗑️ Delete
-                </button>
-              </td>
+      <div className="table-container">
+        <table className="category-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {categories.map((category) => (
+              <tr key={category.id}>
+                <td>{category.id}</td>
+                <td>{category.name}</td>
+                <td>{category.description}</td>
+                <td>
+                  <button className="edit-button" onClick={() => handleEditClick(category)}>
+                    ✏️ Edit
+                  </button>
+                  <button className="delete-button" onClick={() => handleDeleteClick(category)}>
+                    🗑️ Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {isCreateModalOpen && (
         <Modal
