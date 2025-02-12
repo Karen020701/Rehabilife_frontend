@@ -32,7 +32,7 @@ const Navigation = () => {
             <button>Schedules</button>
           </Link>
           <Link to="/locations">
-            <button>View Locations</button>
+            <button>Locations</button>
           </Link>
         </>
       )}
