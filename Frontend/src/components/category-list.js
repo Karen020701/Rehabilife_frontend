@@ -9,11 +9,9 @@ const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-  });
+  const [formData, setFormData] = useState({ name: "", description: "" });
 
   const role = localStorage.getItem("role");
   const navigate = useNavigate();
@@ -50,6 +48,11 @@ const CategoryList = () => {
     setIsDeleteModalOpen(true);
   };
 
+  const handleCreateClick = () => {
+    setFormData({ name: "", description: "" });
+    setIsCreateModalOpen(true);
+  };
+
   const handleCloseEditModal = () => {
     setIsEditModalOpen(false);
     setSelectedCategory(null);
@@ -58,6 +61,10 @@ const CategoryList = () => {
   const handleCloseDeleteModal = () => {
     setIsDeleteModalOpen(false);
     setSelectedCategory(null);
+  };
+
+  const handleCloseCreateModal = () => {
+    setIsCreateModalOpen(false);
   };
 
   const handleInputChange = (e) => {
@@ -89,9 +96,23 @@ const CategoryList = () => {
     }
   };
 
+  const handleCreateFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(config.BASE_URL_CATEGORY_CREATE, formData);
+      handleCloseCreateModal();
+      fetchCategories();
+    } catch (error) {
+      console.error("Error creating category:", error);
+    }
+  };
+
   return (
     <div className="category-list-container">
       <h2>Categories List</h2>
+      <button className="new-category-button" onClick={handleCreateClick}>
+        + Add Category
+      </button>
       <table className="category-table">
         <thead>
           <tr>
@@ -120,42 +141,27 @@ const CategoryList = () => {
         </tbody>
       </table>
 
-      {isEditModalOpen && (
+      {isCreateModalOpen && (
         <Modal
-          isOpen={isEditModalOpen}
-          onRequestClose={handleCloseEditModal}
+          isOpen={isCreateModalOpen}
+          onRequestClose={handleCloseCreateModal}
           className="custom-modal"
           overlayClassName="custom-modal-overlay"
-          contentLabel="Edit Category"
+          contentLabel="Create Category"
         >
-          <h2 className="modal-title">Edit Category</h2>
-          <form onSubmit={handleEditFormSubmit} className="modal-form">
+          <h2 className="modal-title">Add New Category</h2>
+          <form onSubmit={handleCreateFormSubmit} className="modal-form">
             <label>Name:</label>
-            <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
+            <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
 
             <label>Description:</label>
             <input type="text" name="description" value={formData.description} onChange={handleInputChange} />
 
             <div className="modal-buttons">
               <button type="submit" className="modal-save-button">Save</button>
-              <button type="button" className="modal-cancel-button" onClick={handleCloseEditModal}>Cancel</button>
+              <button type="button" className="modal-cancel-button" onClick={handleCloseCreateModal}>Cancel</button>
             </div>
           </form>
-        </Modal>
-      )}
-
-      {isDeleteModalOpen && (
-        <Modal
-          isOpen={isDeleteModalOpen}
-          onRequestClose={handleCloseDeleteModal}
-          className="custom-modal"
-          overlayClassName="custom-modal-overlay"
-          contentLabel="Delete Category"
-        >
-          <h2>Confirm Delete</h2>
-          <p>Are you sure you want to delete category "{selectedCategory?.name}"?</p>
-          <button className="modal-delete-button" onClick={handleDeleteConfirm}>Yes, Delete</button>
-          <button className="modal-cancel-button" onClick={handleCloseDeleteModal}>Cancel</button>
         </Modal>
       )}
     </div>

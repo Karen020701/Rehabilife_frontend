@@ -12,7 +12,8 @@ const config = {
   BASE_URL_USER_DELETE: "http://localhost:3003/api/users",
   BASE_URL_CATEGORIES: "http://localhost:4002/api/categories",
   BASE_URL_CATEGORY_UPDATE: "http://localhost:4003/api/categories",
-  BASE_URL_CATEGORY_DELETE: "http://localhost:4004/api/categories"
+  BASE_URL_CATEGORY_DELETE: "http://localhost:4004/api/categories",
+  BASE_URL_CATEGORY_CREATE: "http://localhost:4001/api/categories"
   
 };
 
