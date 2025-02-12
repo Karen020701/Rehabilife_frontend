@@ -14,9 +14,12 @@ const config = {
   BASE_URL_CATEGORY_UPDATE: "http://localhost:4003/api/categories",
   BASE_URL_CATEGORY_DELETE: "http://localhost:4004/api/categories",
   BASE_URL_CATEGORY_CREATE: "http://localhost:4001/api/categories",
-  BASE_URL_SCHEDULES: "http://localhost:3016/graphql"
+  BASE_URL_SCHEDULES: "http://localhost:3016/graphql",
+  BASE_URL_LOCATIONS: "https://postgresql-karenchicaiza.alwaysdata.net/apiLocations.php"
   
 };
+
+
 
 export default config;
 

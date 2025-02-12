@@ -31,6 +31,9 @@ const Navigation = () => {
           <Link to="/schedules">
             <button>Schedules</button>
           </Link>
+          <Link to="/locations">
+            <button>View Locations</button>
+          </Link>
         </>
       )}
     </div>
