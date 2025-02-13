@@ -1,0 +1,79 @@
+name: Deploy Frontend to AWS EC2
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend-app:latest \
+          --build-arg PUBLIC_IP_AUTH=${{ secrets.PUBLIC_IP_AUTH }} \
+          --build-arg PUBLIC_IP_REGISTER=${{ secrets.PUBLIC_IP_REGISTER }} \
+          --build-arg PUBLIC_IP_OFFERS=${{ secrets.PUBLIC_IP_OFFERS }} \
+          --build-arg PUBLIC_IP_PRODUCT_CREATE=${{ secrets.PUBLIC_IP_PRODUCT_CREATE }} \
+          --build-arg PUBLIC_IP_PRODUCT_DELETE=${{ secrets.PUBLIC_IP_PRODUCT_DELETE }} \
+          --build-arg PUBLIC_IP_PRODUCT_UPDATE=${{ secrets.PUBLIC_IP_PRODUCT_UPDATE }} \
+          --build-arg PUBLIC_IP_PRODUCT=${{ secrets.PUBLIC_IP_PRODUCT }} \
+          --build-arg PUBLIC_IP_LOCATIONS=${{ secrets.PUBLIC_IP_LOCATIONS }} \
+          --build-arg PUBLIC_IP_USERS=${{ secrets.PUBLIC_IP_USERS }} \
+          --build-arg PUBLIC_IP_USER_UPDATE=${{ secrets.PUBLIC_IP_USER_UPDATE }} \
+          --build-arg PUBLIC_IP_USER_DELETE=${{ secrets.PUBLIC_IP_USER_DELETE }} \
+          --build-arg PUBLIC_IP_CATEGORIES=${{ secrets.PUBLIC_IP_CATEGORIES }} \
+          --build-arg PUBLIC_IP_CATEGORY_UPDATE=${{ secrets.PUBLIC_IP_CATEGORY_UPDATE }} \
+          --build-arg PUBLIC_IP_CATEGORY_DELETE=${{ secrets.PUBLIC_IP_CATEGORY_DELETE }} \
+          --build-arg PUBLIC_IP_CATEGORY_CREATE=${{ secrets.PUBLIC_IP_CATEGORY_CREATE }} \
+          --build-arg PUBLIC_IP_SCHEDULES=${{ secrets.PUBLIC_IP_SCHEDULES }} \
+          --build-arg PUBLIC_IP_SUGGESTIONS=${{ secrets.PUBLIC_IP_SUGGESTIONS }} \
+          --build-arg PUBLIC_IP_INVENTORIES=${{ secrets.PUBLIC_IP_INVENTORIES }} \
+          -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend-app:latest .
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/frontend-app:latest
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/frontend-app:latest
+          docker stop frontend-container || true
+          docker rm frontend-container || true
+          docker run -d --name frontend-container -p 80:3000 \
+            -e PUBLIC_IP_AUTH=${{ secrets.PUBLIC_IP_AUTH }} \
+            -e PUBLIC_IP_REGISTER=${{ secrets.PUBLIC_IP_REGISTER }} \
+            -e PUBLIC_IP_OFFERS=${{ secrets.PUBLIC_IP_OFFERS }} \
+            -e PUBLIC_IP_PRODUCT_CREATE=${{ secrets.PUBLIC_IP_PRODUCT_CREATE }} \
+            -e PUBLIC_IP_PRODUCT_DELETE=${{ secrets.PUBLIC_IP_PRODUCT_DELETE }} \
+            -e PUBLIC_IP_PRODUCT_UPDATE=${{ secrets.PUBLIC_IP_PRODUCT_UPDATE }} \
+            -e PUBLIC_IP_PRODUCT=${{ secrets.PUBLIC_IP_PRODUCT }} \
+            -e PUBLIC_IP_LOCATIONS=${{ secrets.PUBLIC_IP_LOCATIONS }} \
+            -e PUBLIC_IP_USERS=${{ secrets.PUBLIC_IP_USERS }} \
+            -e PUBLIC_IP_USER_UPDATE=${{ secrets.PUBLIC_IP_USER_UPDATE }} \
+            -e PUBLIC_IP_USER_DELETE=${{ secrets.PUBLIC_IP_USER_DELETE }} \
+            -e PUBLIC_IP_CATEGORIES=${{ secrets.PUBLIC_IP_CATEGORIES }} \
+            -e PUBLIC_IP_CATEGORY_UPDATE=${{ secrets.PUBLIC_IP_CATEGORY_UPDATE }} \
+            -e PUBLIC_IP_CATEGORY_DELETE=${{ secrets.PUBLIC_IP_CATEGORY_DELETE }} \
+            -e PUBLIC_IP_CATEGORY_CREATE=${{ secrets.PUBLIC_IP_CATEGORY_CREATE }} \
+            -e PUBLIC_IP_SCHEDULES=${{ secrets.PUBLIC_IP_SCHEDULES }} \
+            -e PUBLIC_IP_SUGGESTIONS=${{ secrets.PUBLIC_IP_SUGGESTIONS }} \
+            -e PUBLIC_IP_INVENTORIES=${{ secrets.PUBLIC_IP_INVENTORIES }} \
+            ${{ secrets.DOCKERHUB_USERNAME }}/frontend-app:latest
+
